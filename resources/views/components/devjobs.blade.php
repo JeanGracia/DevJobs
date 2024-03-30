@@ -1,0 +1,1 @@
+<h1 class="text-5xl font-extrabold dark:text-white">Dev<small class="ms-2 font-semibold text-gray-500 dark:text-gray-400">Jobs</small></h1>
