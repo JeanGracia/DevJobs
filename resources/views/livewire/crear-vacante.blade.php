@@ -1,3 +1,102 @@
-<div>
-    {{-- Knowing others is intelligence; knowing yourself is true wisdom. --}}
-</div>
+<form class="md:w-1/2 space-y-5"> {{-- space-y-5: establece un espacio vertical entre los elementos secundarios del div. En este caso, crea un espacio vertical de 1.25 rem (aproximadamente 20 píxeles) --}}
+    <div>
+        <x-input-label for="titulo" :value="__('Título de la vacante')" />
+
+        <x-text-input
+            id="titulo"
+            class="block mt-1 w-full"
+            type="text"
+            name="titulo"
+            :value="old('titulo')"
+            placeholder="Título de la vacante"
+        />
+
+    </div>
+
+    <div>
+        <x-input-label for="salario" :value="__('Salario mensual')" />
+
+        <select
+            name="salario"
+            id="salario"
+            class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm w-full"
+        >
+            {{-- <option value="" disabled selected> -- Selecciona un rol -- </option>
+                <option value="1">Developer</option>
+                <option value="2">Recruiter</option> --}}
+        </select>
+    </div>
+
+    <div>
+        <x-input-label for="categoria" :value="__('Categoría')" />
+
+        <select
+            name="categoria"
+            id="categoria"
+            class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm w-full"
+        >
+            {{-- <option value="" disabled selected> -- Selecciona un rol -- </option>
+                <option value="1">Developer</option>
+                <option value="2">Recruiter</option> --}}
+        </select>
+    </div>
+
+    <div>
+        <x-input-label for="empresa" :value="__('Empresa')" />
+
+        <x-text-input
+            id="empresa"
+            class="block mt-1 w-full"
+            type="text"
+            name="empresa"
+            :value="old('empresa')"
+            placeholder="Nombre de la empresa"
+        />
+
+    </div>
+
+    <div>
+        <x-input-label for="ultimo_dia" :value="__('Última día para postularse')" />
+
+        {{-- "min" especifica la fecha mínima que se puede seleccionar.
+        "max" especifica la fecha máxima que se puede seleccionar. --}}
+        <x-text-input
+            id="ultimo_dia"
+            class="block mt-1 w-full"
+            type="date"
+            min="2024-04-01"
+            max="2024-12-31"
+            name="ultimo_dia"
+            :value="old('ultimo_dia')"
+        />
+
+    </div>
+
+    <div>
+        <x-input-label for="descripcion" :value="__('Descripción del cargo')" />
+
+        <textarea
+            id="descripcion"
+            class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm w-full h-72"
+            name="descripcion"
+            placeholder="Definir las funciones y responsabilidades del puesto de trabajo según la estructura organizacional"
+        ></textarea> {{-- es necesario dejar las etiquetas sin espacio --}}
+
+    </div>
+
+    <div>
+        <x-input-label for="imagen" :value="__('Imagen')" />
+
+        <x-text-input
+            id="imagen"
+            class="block mt-1 w-full"
+            type="file"
+            name="imagen"
+        />
+
+    </div>
+
+    <x-primary-button class="w-full justify-center">
+        {{ __('Crear vacante') }}
+    </x-primary-button>
+</form>
