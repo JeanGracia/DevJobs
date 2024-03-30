@@ -36,9 +36,10 @@
             id="categoria"
             class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm w-full"
         >
-            {{-- <option value="" disabled selected> -- Selecciona un rol -- </option>
-                <option value="1">Developer</option>
-                <option value="2">Recruiter</option> --}}
+            <option value="" disabled selected> -- Seleccione -- </option>
+                @foreach ($categorias as $categoria)
+                    <option value="{{ $categoria->id }}">{{ $categoria->categoria }}</option>
+                @endforeach
         </select>
     </div>
 
@@ -78,7 +79,7 @@
 
         <textarea
             id="descripcion"
-            class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm w-full h-72"
+            class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm w-full h-52"
             name="descripcion"
             placeholder="Definir las funciones y responsabilidades del puesto de trabajo según la estructura organizacional"
         ></textarea> {{-- es necesario dejar las etiquetas sin espacio --}}
