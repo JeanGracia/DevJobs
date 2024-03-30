@@ -21,9 +21,10 @@
             id="salario"
             class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm w-full"
         >
-            {{-- <option value="" disabled selected> -- Selecciona un rol -- </option>
-                <option value="1">Developer</option>
-                <option value="2">Recruiter</option> --}}
+            <option value="" disabled selected> -- Seleccione -- </option>
+                @foreach ($salarios as $salario)
+                    <option value="{{ $salario->id }}">{{ $salario->salario }}</option>
+                @endforeach
         </select>
     </div>
 
