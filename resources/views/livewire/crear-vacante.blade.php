@@ -2,11 +2,12 @@
     <div>
         <x-input-label for="titulo" :value="__('Título de la vacante')" />
 
+        {{-- la directiva "wire:model" establece la comunicación bidireccional entre los campos del formulario y los componentes de Livewire. Esto permite que cualquier cambio en los campos del formulario se refleje automáticamente en el componente de Livewire, y viceversa, sin necesidad de escribir código JavaScript adicional para manejar la comunicación entre el front-end y el back-end. --}}
         <x-text-input
             id="titulo"
             class="block mt-1 w-full"
             type="text"
-            name="titulo"
+            wire:model="titulo" 
             :value="old('titulo')"
             placeholder="Título de la vacante"
         />
@@ -17,7 +18,7 @@
         <x-input-label for="salario" :value="__('Salario mensual')" />
 
         <select
-            name="salario"
+            wire:model="salario"
             id="salario"
             class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm w-full"
         >
@@ -32,7 +33,7 @@
         <x-input-label for="categoria" :value="__('Categoría')" />
 
         <select
-            name="categoria"
+            wire:model="categoria"
             id="categoria"
             class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm w-full"
         >
@@ -50,7 +51,7 @@
             id="empresa"
             class="block mt-1 w-full"
             type="text"
-            name="empresa"
+            wire:model="empresa"
             :value="old('empresa')"
             placeholder="Nombre de la empresa"
         />
@@ -68,7 +69,7 @@
             type="date"
             min="2024-04-01"
             max="2024-12-31"
-            name="ultimo_dia"
+            wire:model="ultimo_dia"
             :value="old('ultimo_dia')"
         />
 
@@ -80,7 +81,7 @@
         <textarea
             id="descripcion"
             class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm w-full h-52"
-            name="descripcion"
+            wire:model="descripcion"
             placeholder="Definir las funciones y responsabilidades del puesto de trabajo según la estructura organizacional"
         ></textarea> {{-- es necesario dejar las etiquetas sin espacio --}}
 
@@ -93,7 +94,7 @@
             id="imagen"
             class="block mt-1 w-full"
             type="file"
-            name="imagen"
+            wire:model="imagen"
         />
 
     </div>
