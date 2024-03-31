@@ -19,7 +19,7 @@ La directiva wire:submit.prevent se utiliza en Livewire para interceptar el envÃ
         />
 
         @error('titulo')
-            {{ $message }}
+            <livewire:mostrar-alerta :message="$message" />
         @enderror
 
     </div>
