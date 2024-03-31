@@ -1,4 +1,10 @@
-<form class="md:w-1/2 space-y-5"> {{-- space-y-5: establece un espacio vertical entre los elementos secundarios del div. En este caso, crea un espacio vertical de 1.25 rem (aproximadamente 20 píxeles) --}}
+{{--
+space-y-5: establece un espacio vertical entre los elementos secundarios del div. En este caso, crea un espacio vertical de 1.25 rem (aproximadamente 20 píxeles) 
+
+La directiva wire:submit.prevent se utiliza en Livewire para interceptar el envío de un formulario y prevenir el comportamiento predeterminado de recargar la página al enviar el formulario. En lugar de recargar la página, esta directiva activa el método crearVacante en el componente de Livewire asociado al formulario.
+--}}
+
+<form class="md:w-1/2 space-y-5" wire:submit.prevent='crearVacante'>
     <div>
         <x-input-label for="titulo" :value="__('Título de la vacante')" />
 
@@ -11,6 +17,10 @@
             :value="old('titulo')"
             placeholder="Título de la vacante"
         />
+
+        @error('titulo')
+            {{ $message }}
+        @enderror
 
     </div>
 

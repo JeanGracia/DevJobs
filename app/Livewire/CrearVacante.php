@@ -26,6 +26,11 @@ class CrearVacante extends Component
         'imagen' => ['required', 'image', 'max:2048'], // El campo "imagen" es requerido, debe ser una imagen válida (JPEG, PNG, GIF, SVG, o BMP) y max especifica el tamaño máximo del archivo en kilobytes (en este caso, 2048 KB o 2 MB).
     ];
 
+    public function crearVacante()
+    {
+        $datos = $this->validate();
+    }
+
     public function render()
     {
         $salarios = Salario::all('salario');
