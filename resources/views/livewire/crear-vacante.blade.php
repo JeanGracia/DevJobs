@@ -21,7 +21,6 @@ La directiva wire:submit.prevent se utiliza en Livewire para interceptar el env√
         @error('titulo')
             <livewire:mostrar-alerta :message="$message" />
         @enderror
-
     </div>
 
     <div>
@@ -37,6 +36,10 @@ La directiva wire:submit.prevent se utiliza en Livewire para interceptar el env√
                     <option value="{{ $salario->id }}">{{ $salario->salario }}</option>
                 @endforeach
         </select>
+
+        @error('salario')
+            <livewire:mostrar-alerta :message="$message" />
+        @enderror
     </div>
 
     <div>
@@ -52,6 +55,10 @@ La directiva wire:submit.prevent se utiliza en Livewire para interceptar el env√
                     <option value="{{ $categoria->id }}">{{ $categoria->categoria }}</option>
                 @endforeach
         </select>
+
+        @error('categoria')
+            <livewire:mostrar-alerta :message="$message" />
+        @enderror
     </div>
 
     <div>
@@ -66,6 +73,9 @@ La directiva wire:submit.prevent se utiliza en Livewire para interceptar el env√
             placeholder="Nombre de la empresa"
         />
 
+        @error('empresa')
+            <livewire:mostrar-alerta :message="$message" />
+        @enderror
     </div>
 
     <div>
@@ -83,6 +93,9 @@ La directiva wire:submit.prevent se utiliza en Livewire para interceptar el env√
             :value="old('ultimo_dia')"
         />
 
+        @error('ultimo_dia')
+            <livewire:mostrar-alerta :message="$message" />
+        @enderror
     </div>
 
     <div>
@@ -95,6 +108,9 @@ La directiva wire:submit.prevent se utiliza en Livewire para interceptar el env√
             placeholder="Definir las funciones y responsabilidades del puesto de trabajo seg√∫n la estructura organizacional"
         ></textarea> {{-- es necesario dejar las etiquetas sin espacio --}}
 
+        @error('descripcion')
+            <livewire:mostrar-alerta :message="$message" />
+        @enderror
     </div>
 
     <div>
@@ -104,9 +120,13 @@ La directiva wire:submit.prevent se utiliza en Livewire para interceptar el env√
             id="imagen"
             class="block mt-1 w-full"
             type="file"
+            accept="image/*" {{-- es una caracter√≠stica est√°ndar de HTML5 y se utiliza para especificar que solo se pueden seleccionar archivos de tipo JPEG, PNG, al abrir el selector de archivos. --}}
             wire:model="imagen"
         />
 
+        @error('imagen')
+            <livewire:mostrar-alerta :message="$message" />
+        @enderror
     </div>
 
     <x-primary-button class="w-full justify-center">
