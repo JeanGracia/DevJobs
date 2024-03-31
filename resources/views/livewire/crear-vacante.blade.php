@@ -31,7 +31,7 @@ La directiva wire:submit.prevent se utiliza en Livewire para interceptar el envÃ
             id="salario"
             class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm w-full"
         >
-            <option value="" disabled selected> -- Seleccione -- </option>
+            <option value=""> -- Seleccione -- </option>
                 @foreach ($salarios as $salario)
                     <option value="{{ $salario->id }}">{{ $salario->salario }}</option>
                 @endforeach
@@ -50,7 +50,7 @@ La directiva wire:submit.prevent se utiliza en Livewire para interceptar el envÃ
             id="categoria"
             class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm w-full"
         >
-            <option value="" disabled selected> -- Seleccione -- </option>
+            <option value=""> -- Seleccione -- </option>
                 @foreach ($categorias as $categoria)
                     <option value="{{ $categoria->id }}">{{ $categoria->categoria }}</option>
                 @endforeach
