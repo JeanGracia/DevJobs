@@ -124,6 +124,13 @@ La directiva wire:submit.prevent se utiliza en Livewire para interceptar el envÃ
             wire:model="imagen"
         />
 
+        <div class="my-5 w-80">
+            @if ($imagen)
+                Imagen:
+                <img src="{{ $imagen->temporaryUrl() }}">
+            @endif
+        </div>
+
         @error('imagen')
             <livewire:mostrar-alerta :message="$message" />
         @enderror
