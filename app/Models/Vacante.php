@@ -13,11 +13,12 @@ class Vacante extends Model
 
     protected $fillable = [
         'titulo',
-        'salario', 
-        'categoria', 
-        'empresa', 
-        'ultimo_dia', 
-        'descripcion', 
+        'user_id',
+        'salario_id',
+        'categoria_id',
+        'empresa',
+        'ultimo_dia',
+        'descripcion',
         'imagen'
     ];
 

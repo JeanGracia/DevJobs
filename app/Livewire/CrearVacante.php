@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\Categoria;
 use App\Models\Salario;
+use App\Models\Vacante;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -21,8 +22,8 @@ class CrearVacante extends Component
 
     protected $rules = [
         'titulo' => ['required', 'string', 'max:255'],
-        'salario' => 'required',
-        'categoria' => 'required',
+        'salario' => ['required', 'integer', 'min:1', 'max:9'],
+        'categoria' => ['required', 'integer', 'min:1', 'max:7'],
         'empresa' => ['required', 'string', 'max:100'],
         'ultimo_dia' => ['required', 'date', 'after:today'], // after:today asegura que la fecha proporcionada en el campo sea una fecha futura con respecto a la fecha actual
         'descripcion' => 'required', // El campo "descripcion" es requerido
@@ -35,8 +36,19 @@ class CrearVacante extends Component
 
         //Almacenar la imagen
         $url_imagen = $this->imagen->store('public/vacantes');
+        $datos['imagen'] = str_replace('public/vacantes/', '', $url_imagen);
 
         //Crear la vacante
+        Vacante::create([
+            'titulo' => $datos['titulo'],
+            'user_id' => auth()->user()->id,
+            'salario_id' => $datos['salario'],
+            'categoria_id' => $datos['categoria'],
+            'empresa' => $datos['empresa'],
+            'ultimo_dia' => $datos['ultimo_dia'],
+            'descripcion' => $datos['descripcion'],
+            'imagen' => $datos['imagen'],
+        ]);
 
         //Crear un mensaje de succes
 
@@ -45,8 +57,9 @@ class CrearVacante extends Component
 
     public function render()
     {
-        $salarios = Salario::all('salario');
-        $categorias = Categoria::all('categoria');
+        // Consulta DB
+        $salarios = Salario::all('id','salario');
+        $categorias = Categoria::all('id','categoria');
 
         return view('livewire.crear-vacante', compact('salarios', 'categorias'));
     }
