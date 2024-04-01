@@ -7,9 +7,12 @@ use App\Models\Salario;
 use App\Models\Vacante;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 
 class CrearVacante extends Component
 {
+    use LivewireAlert;
+
     public $titulo;
     public $salario;
     public $categoria;
@@ -51,8 +54,14 @@ class CrearVacante extends Component
         ]);
 
         //Crear un mensaje de succes
+        $this->flash('success', 'La vacante se público correctamente', [
+            'position' => 'top-end',
+            'timer' => '4997',
+            'toast' => true,
+        ], '/');
 
         //Redireccionar
+        return redirect()->route('vacantes.index');
     }
 
     public function render()
