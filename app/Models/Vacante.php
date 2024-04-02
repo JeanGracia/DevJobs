@@ -11,6 +11,8 @@ class Vacante extends Model
 {
     use HasFactory;
 
+    protected $casts = ['ultimo_dia' => 'date']; //el campo "ultimo_dia" se debe manejar como una fecha.
+
     protected $fillable = [
         'titulo',
         'user_id',
